@@ -1,0 +1,17 @@
+name: Tag on Github
+on: [workflow_dispatch]
+
+jobs:
+  release:
+    name: Tag on Github
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Tag on Github
+        run: |
+          VERSION=$(cat version)
+          echo "$VERSION"
+          git tag "$VERSION"
+          git push origin "$VERSION"
