@@ -1,0 +1,31 @@
+name: Rebuild latest image version
+
+on:
+  schedule:
+    - cron: 30 8 * * *
+  workflow_dispatch:
+
+jobs:
+  rebuild:
+    name: Rebuild latest image version
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Get latest version
+        id: get_latest_version
+        run: |
+          VERSION=$(cat version)
+          echo "$VERSION"
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+      - name: Trigger Workflow
+        uses: actions/github-script@v6
+        with:
+          script: |
+            github.rest.actions.createWorkflowDispatch({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: 'build.yml',
+              ref: "${{ steps.get_latest_version.outputs.version }}",
+            })
