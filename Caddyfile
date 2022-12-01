@@ -1,0 +1,7 @@
+{$ALTERNATIVE_DOMAINS} {
+    redir https://{$MAIN_DOMAIN}{uri} permanent
+}
+
+{$MAIN_DOMAIN} {
+    reverse_proxy {$UPSTREAM_URL}
+}
