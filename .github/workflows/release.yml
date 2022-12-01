@@ -1,9 +1,6 @@
 name: Tag on Github
 on: [workflow_dispatch]
 
-env:
-  GITHUB_TOKEN: ${{ secrets.PATNAME }}
-
 jobs:
   release:
     name: Tag on Github
@@ -14,10 +11,8 @@ jobs:
 
       - name: Tag on Github
         run: |
-          git config user.name "${GITHUB_ACTOR}"
-          git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-          
           VERSION=$(cat version)
           echo "$VERSION"
-          git tag -a "$VERSION" -m "Promoting release $VERSION"
+
+          git tag "$VERSION"
           git push origin "$VERSION"
