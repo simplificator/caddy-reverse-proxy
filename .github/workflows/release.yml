@@ -1,6 +1,9 @@
 name: Tag on Github
 on: [workflow_dispatch]
 
+env:
+  GITHUB_TOKEN: ${{ secrets.PATNAME }}
+
 jobs:
   release:
     name: Tag on Github
