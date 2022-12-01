@@ -1,3 +1,7 @@
+{
+  admin off
+}
+
 {$ALTERNATIVE_DOMAINS} {
     redir https://{$MAIN_DOMAIN}{uri} permanent
 }
