@@ -10,7 +10,7 @@ jobs:
     name: Rebuild latest image version
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       
       - name: Get latest version
         id: get_latest_version
