@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 1.1.3 - 2023-12-20
+
+* Update Caddy from v2.7.5 to v2.7.6 ([#30](https://github.com/simplificator/caddy-reverse-proxy/pull/30))
+
 ## 1.1.2 - 2023-12-04
 
 * Update Caddy from v2.7.4 to v2.7.5 ([#27](https://github.com/simplificator/caddy-reverse-proxy/pull/27))
